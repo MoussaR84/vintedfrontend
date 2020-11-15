@@ -7,11 +7,13 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
+      // requete axios
       const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
+        "https://lereacteur-vinted-api.herokuapp.com/offers/"
       );
 
       setData(response.data);
+      // condition départ pour affichage
       setIsLoading(false);
     };
     fetchData();
@@ -19,6 +21,7 @@ const Home = () => {
   return isLoading ? (
     <p>En cours chargement...</p>
   ) : (
+    // si ca marche pas encours sinon map sur tableau et afficher element que l on veut
     <div className="card-size-price-brand">
       {data.offers.map((offers, index) => {
         return (

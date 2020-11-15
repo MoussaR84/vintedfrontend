@@ -12,7 +12,7 @@ const Offer = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/offers"
+        "https://lereacteur-vinted-api.herokuapp.com/offers/${id}`"
       );
       setData(response.data);
       setIsLoading(false);
