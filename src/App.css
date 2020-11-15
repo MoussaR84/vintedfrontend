@@ -1,1 +1,37 @@
 /* Other rules */
+/*header*/
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1280px;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.header-container > div:first-child,
+.header-logo {
+  cursor: pointer;
+}
+
+.header-logo {
+  height: 30px;
+  padding-bottom: 15px;
+}
+
+/*produits Home */
+
+.card-size-price-brand > a {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.card-size-price-brand span:first-child {
+  font-size: 14px;
+}
+
+.card-size-price-brand span:not(:first-child) {
+  font-size: 12px;
+  color: #999;
+}
