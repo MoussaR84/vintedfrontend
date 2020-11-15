@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/Login">
             <Login setUser={setUser} />
           </Route>
-          <Route path="/offer/id">
+          <Route path="/offer/:id">
             <Offer />
           </Route>
           <Route path="/">
