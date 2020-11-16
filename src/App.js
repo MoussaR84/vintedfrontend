@@ -6,17 +6,25 @@ import Home from "./Containers/Home";
 import Login from "./Containers/Login";
 import Signup from "./Containers/Signup";
 import Offer from "./Components/Offer";
+import Cookie from "js-cookie";
 
 const App = () => {
   const [user, setUser] = useState();
   const [search, setSearch] = useState("");
+  const cookie = Cookie.get("tokenCookie");
+  const [token, setToken] = useState(cookie || "");
+  const connect = (tokenCookie) => {
+    Cookie.set("tokenCookie", tokenCookie);
+    setToken(tokenCookie);
+  };
+
   return (
     <>
       <Router>
         <Header setSearch={setSearch} />
         <Switch>
           <Route path="/signup">
-            <Signup setUser={setUser} />
+            <Signup setUser={setUser} connect={connect} />
           </Route>
           <Route path="/Login">
             <Login setUser={setUser} />
