@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Assets/img/logovinted.png";
+import Input from "./Input";
 
-const Header = ({ token, setUser }) => {
+//balance un cookie mais on verra à la fin
+const Header = ({ token, setUser, setSearch }) => {
   return (
     <div className="header-container">
       <div>
         <Link to="/">
           <img className="header-logo" src={Logo} alt="logo" />
         </Link>
+        <Input className="inputform" setSearch={setSearch} />
       </div>
       {token ? (
         <button

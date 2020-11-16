@@ -9,12 +9,11 @@ import Offer from "./Components/Offer";
 
 const App = () => {
   const [user, setUser] = useState();
-
+  const [search, setSearch] = useState("");
   return (
     <>
       <Router>
-        <Header />
-
+        <Header setSearch={setSearch} />
         <Switch>
           <Route path="/signup">
             <Signup setUser={setUser} />
@@ -22,11 +21,11 @@ const App = () => {
           <Route path="/Login">
             <Login setUser={setUser} />
           </Route>
-          <Route path="/offers/:id">
+          <Route path="/offer/:id">
             <Offer />
           </Route>
           <Route path="/">
-            <Home />
+            <Home search={search} />
           </Route>
         </Switch>
       </Router>
