@@ -1,72 +1,70 @@
-import React,{useState} from "react";
-import axios from"axios"
+import React, { useState } from "react";
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const Publish = ({token}) =>
+const Publish = ({ token }) => {
+  const history = useHistory();
 
-const history = useHistory();
-    
+  // la liste des states
 
-    // la liste des states 
-    const [file, setFile] = useState(); 
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [brand, setBrand] = useState("");
-    const [size, setSize] = useState("");
-    const [color, setColor] = useState("");
-    const [condition, setCondition] = useState("");
-    const [city, setCity] = useState("");
-    const [price, setPrice] = useState(""); {
+  const [file, setFile] = useState();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [brand, setBrand] = useState("");
+  const [size, setSize] = useState("");
+  const [color, setColor] = useState("");
+  const [condition, setCondition] = useState("");
+  const [city, setCity] = useState("");
+  const [price, setPrice] = useState("");
 
-        
-    // les onChanges
+  // les onChanges
 
-    const handleChangeFile=(event)=>{
-        setFile(event.target.value)};
-    const handleChangeTitle=(event)=>{
-        setTitle(event.target.value)
-    }
-    const handleChangeDescription=(event)=>{
-        setDescription(event.target.value)
-    }
-    const handleChangeBrand=(event)=>{
-        setBrand(event.target.value)
+  const handleChangeFile = (event) => {
+    setFile(event.target.value);
+  };
+  const handleChangeTitle = (event) => {
+    setTitle(event.target.value);
+  };
+  const handleChangeDescription = (event) => {
+    setDescription(event.target.value);
+  };
+  const handleChangeBrand = (event) => {
+    setBrand(event.target.value);
+  };
+  const handleChangeSize = (event) => {
+    setSize(event.target.value);
+  };
+  const handleChangeColor = (event) => {
+    setColor(event.target.value);
+  };
+  const handleChangeCondition = (event) => {
+    setCondition(event.target.value);
+  };
+  const handleChangeCity = (event) => {
+    setCity(event.target.value);
+  };
+  const handleChangePrice = (event) => {
+    setPrice(event.target.value);
+  };
 
-    }
-    const handleChangeSize=(event)=>{
-        setSize(event.target.value)
-    }
-    const handleChangeColor=(event)=>{
-        setColor(event.target.value)
-    }
-    const handleChangeCondition=(event)=>{
-        setCondition(event.target.value)
-    }
-    const handleChangeCity=(event)=>{
-        setCity(event.target.value)
-    }
-    const handleChangePrice=(event)=>{
-        setPrice(event.target.value)
-    }
+  //on envoie le Formdata au serveur
 
- //on envoie le Formdata au serveur
-const formData = new FormData();
+  const formData = new FormData();
 
-formData.append("picture",files)
-formData.append("title",title)
-formData.append("description",description)
-formData.append("brand",brand) 
-formData.append("size",size)
-formData.append("color",color)
-formData.append("city",city)
-formData.append("condition",condition)
-formData.append("price",price)
+  formData.append("picture", files);
+  formData.append("title", title);
+  formData.append("description", description);
+  formData.append("brand", brand);
+  formData.append("size", size);
+  formData.append("color", color);
+  formData.append("city", city);
+  formData.append("condition", condition);
+  formData.append("price", price);
 
-// faire condition pour prix 
+  // faire condition pour prix
 
-
-// on envoie le token vers  axios en post 
-const handleSubmit = async (event) => {
+  // on envoie le token vers  axios en post
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (
       files &&
@@ -80,27 +78,24 @@ const handleSubmit = async (event) => {
       price
     ) {
       const response = await axios.post(
-          "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
+        "https://lereacteur-vinted-api.herokuapp.com/offer/publish",
 
-      formData,
-
-      {
-
-        headers: {
+        formData,
+        {
+          headers: {
             authorization: `Bearer ${token}`,
           },
         }
       );
-      console.log(response.data);
+      //   console.log(response.data);
       history.push("/");
     } else {
       alert("Il manque des informations !");
     }
   };
 
-return (
-
-<main>
+  return (
+    <main>
       <div className="container">
         <h2>Vends ton article</h2>
         <form className="publish-form" onSubmit={handleSubmit}>
@@ -208,4 +203,4 @@ return (
   );
 };
 
-export default Publish
+export default Publish;
