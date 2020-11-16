@@ -7,7 +7,7 @@ const Publish = ({ token }) => {
 
   // la liste des states
 
-  const [file, setFile] = useState();
+  const [files, setFile] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
@@ -22,6 +22,7 @@ const Publish = ({ token }) => {
   const handleChangeFile = (event) => {
     setFile(event.target.value);
   };
+
   const handleChangeTitle = (event) => {
     setTitle(event.target.value);
   };
