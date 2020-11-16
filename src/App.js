@@ -6,34 +6,47 @@ import Home from "./Containers/Home";
 import Login from "./Containers/Login";
 import Signup from "./Containers/Signup";
 import Offer from "./Components/Offer";
-import Cookie from "js-cookie";
+import Cookies from "js-cookie";
+import Publish from "./Containers/Publish";
 
 const App = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState("");
   const [search, setSearch] = useState("");
-  const cookie = Cookie.get("tokenCookie");
-  const [token, setToken] = useState(cookie || "");
-  const connect = (tokenCookie) => {
-    Cookie.set("tokenCookie", tokenCookie);
-    setToken(tokenCookie);
+  const [token, setToken] = useState(Cookies.get("token") || null);
+
+  const setUsers = (tokenToSet) => {
+    if (tokenToSet) {
+      // ON CREE UN COOKIE ET ON DONNE UNE DIUREE DE VIE
+      Cookies.set("token", tokenToSet, { expires: 3000 });
+      setToken(tokenToSet);
+    } else {
+      console.log("coucou");
+      // ON SUPPRIME LE COOKIE
+      Cookies.remove("token");
+      // ON LE REPASSE A VALEUR NULL
+      setToken(null);
+    }
   };
 
   return (
     <>
       <Router>
-        <Header setSearch={setSearch} />
+        <Header setSearch={setSearch} token={token} setUser={setUsers} />
         <Switch>
           <Route path="/signup">
-            <Signup setUser={setUser} connect={connect} />
+            <Signup setUser={setUsers} />
           </Route>
           <Route path="/Login">
-            <Login setUser={setUser} />
+            <Login setUser={setUsers} />
           </Route>
           <Route path="/offer/:id">
-            <Offer />
+            <Offer token={token} />
+          </Route>
+          <Route path="/Publish">
+            <Publish token={token} />
           </Route>
           <Route path="/">
-            <Home search={search} />
+            <Home search={search} token={token} />
           </Route>
         </Switch>
       </Router>
@@ -42,5 +55,3 @@ const App = () => {
 };
 
 export default App;
-
-// ne pas oublier que le "/" va en dernier "

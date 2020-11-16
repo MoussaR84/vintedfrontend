@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
@@ -42,12 +42,13 @@ const Login = ({ setUser }) => {
             type="submit"
             onClick={async () => {
               const response = await axios.post(
-                "https://lereacteur-vinted-api.herokuapp.com/offers",
+                "https://lereacteur-vinted-api.herokuapp.com/Login",
                 {
                   email: email,
                   password: password,
                 }
               );
+              Cookies.set("token", response.data.token);
               setUser(response.data.token);
               history.push("/");
             }}
@@ -55,11 +56,6 @@ const Login = ({ setUser }) => {
             Go
           </button>
           <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
-          <checkbox>Suscribe to Our Newsletter</checkbox>
-          <span>
-            By registering I confirm that I’ve read and accepted Vinted’s "Terms
-            Conditions" and Privacy Policy. I confirm I’m at least 18 years old.{" "}
-          </span>
         </form>
       </div>
     </>

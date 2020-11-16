@@ -5,6 +5,7 @@ import Input from "./Input";
 
 //balance un cookie mais on verra à la fin
 const Header = ({ token, setUser, setSearch }) => {
+  console.log("TOOOKEEEN ===>", token);
   return (
     <div className="header-container">
       <div>
@@ -29,7 +30,7 @@ const Header = ({ token, setUser, setSearch }) => {
           </Link>
           <Link to="/login">
             <button className="Login">Se connecter</button>
-          </Link>{" "}
+          </Link>
         </>
       )}
     </div>

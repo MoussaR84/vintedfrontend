@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-
+import { Link, useHistory } from "react-router-dom";
+import Cookies from "js-cookie";
 const Signup = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -9,61 +9,78 @@ const Signup = ({ setUser }) => {
 
   const history = useHistory();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault(); // on ne rafraichit pas
-    // direct requete vers axios pour password email et username
-    try {
-      const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-        {
-          username: username,
-          email: email,
-          password: password,
-        }
-      );
-
-      if (response.data.token) {
-        setUser(response.data.token); // on part vers Home
-        history.push("/");
-      } else {
-        alert("Une erreur est survenue"); // si probleme est survenue avec le catch comme error
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
   };
 
   return (
-    <div>
-      Signup
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={username}
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-        />
-        <br />
-        <input
-          type="email"
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        />
-        <br />
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        />
-        <br />
-        <input type="submit" value="S'inscrire" />
-      </form>
-    </div>
+    <>
+      <div className="signup-container">
+        <h2>S'inscrire</h2>
+        <form className="signup-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value={username}
+            placeholder="Nom d'utilisateur"
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+          />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            placeholder="Email"
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            placeholder="Mot de passe"
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+          />
+          <div className="checkbox-container">
+            <div>
+              <input type="checkbox" />
+              <span>S'inscrire à notre newsletter</span>
+            </div>
+            <p>
+              En m'inscrivant je confirme avoir lu et accepté les Termes &
+              Conditions et Politique de Confidentialité de Vinted. Je confirme
+              avoir au moins 18 ans.
+            </p>
+          </div>
+          <button
+            type="submit"
+            onClick={async () => {
+              const response = await axios.post(
+                "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+                {
+                  username: username,
+                  email: email,
+                  password: password,
+                }
+              );
+              Cookies.set("token", response.data.token);
+              setUser(response.data.token);
+              history.push("/");
+            }}
+          >
+            S'inscrire
+          </button>
+        </form>
+        <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+      </div>
+    </>
   );
 };
 
