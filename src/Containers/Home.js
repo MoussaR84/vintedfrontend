@@ -43,15 +43,19 @@ const Home = ({ search, setSearch }) => {
         {data.offers.map((offer, index) => {
           // console.log(offer);
           return (
-            <Link to={`/offer/${offer._id}`} key={offer._id}>
-              <img src={offer.product_image.secure_url} />
-              <span>{offer.product_price}€</span>
-              <span>{offer.product_details[1].TAILLE}</span>
-              <span>{offer.product_details[0].MARQUE}</span>
-              <span className="avataruser">
-                {offer.product_pictures.secure_url}
-              </span>
-            </Link>
+            <div className="card-container">
+              <Link to={`/offer/${offer._id}`} key={offer._id}>
+                <img src={offer.product_image.secure_url} />
+                <div className="cardbsize">
+                  <span>{offer.product_price}€</span>
+                  <span>{offer.product_details[1].TAILLE}</span>
+                  <span>{offer.product_details[0].MARQUE}</span>
+                  <span className="avataruser">
+                    {offer.product_pictures.secure_url}
+                  </span>
+                </div>
+              </Link>
+            </div>
           );
         })}
       </div>

@@ -1,0 +1,237 @@
+/* COMMON RULES */
+div {
+  display: block;
+}
+
+img {
+  pointer-events: none;
+  cursor: pointer;
+}
+/* HEADER*/
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1280px;
+  margin: auto;
+  padding: 10px 0;
+}
+
+.header-container > div:first-child,
+.header-logo {
+  cursor: pointer;
+}
+
+.header-logo {
+  height: 60px;
+  padding-bottom: 15px;
+}
+
+.input-form {
+  font-family: "Maison Neue";
+  padding-left: 40px;
+  width: 590px;
+  background-color: #f5f6f7;
+  border-radius: 5px;
+  height: 37px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: textfield;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  padding-top: 60px;
+}
+
+.disconect {
+  margin-right: 20px;
+  appearance: button;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+}
+
+.Login {
+  margin-right: 20px;
+  appearance: button;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  height: 30px;
+  width: 115px;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-family: "Maison Neue";
+  font-size: 12px;
+  outline: none;
+}
+.button-login-signup {
+  margin-right: 20px;
+  appearance: button;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  height: 30px;
+  width: 115px;
+  border: 1px solid #2cb1ba;
+  border-radius: 5px;
+  font-family: "Maison Neue";
+  font-size: 12px;
+  outline: none;
+}
+
+/*LOGIN*/
+
+/*SIGNUP*/
+
+/*INPUT*/
+
+/*HOME*/
+.home-hero {
+  height: 455px;
+  width: 100%;
+  position: relative;
+  background-position: 50%;
+  background-size: cover;
+}
+
+/*  HOME IMG  */
+
+.home-hero {
+  height: 455px;
+  width: 100%;
+  position: relative;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.imgbackground {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 80px;
+  pointer-events: none;
+}
+
+.home-hero > div {
+  width: 1280px;
+  margin: auto;
+}
+
+.home-hero img {
+  height: 455px;
+  width: 100%;
+  position: relative;
+  background-position: 50%;
+  background-position-x: 50%;
+  background-position-y: center;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.homeready {
+  height: 220px;
+  width: 360px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 3px;
+  font-size: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 75px;
+  box-shadow: 0 0 2px rgba(17, 17, 17, 0.24);
+}
+
+.homeready button {
+  height: 45px;
+  width: 187px;
+  background-color: #2baeb7;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  padding: 0 14px;
+  margin-top: 32px;
+}
+
+/*  HOME OFFERS  */
+
+.home-c-wrapper {
+  width: 1280px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto auto;
+}
+
+.card-container {
+  width: 235px;
+  padding: 0 6px 16px;
+  cursor: pointer;
+}
+
+.avataruser > span {
+  color: #999;
+  font-size: 14px;
+}
+
+.card-container div:last-child img {
+  height: 360px;
+  width: 235px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.avataruser {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.cardbsize {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.cardbsize span:first-child {
+  font-size: 14px;
+  color: black;
+}
+
+.cardbsize span:not(:first-child) {
+  font-size: 12px;
+  color: #999;
+}
+
+/*Offer*/

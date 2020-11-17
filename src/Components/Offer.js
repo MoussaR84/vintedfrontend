@@ -45,17 +45,18 @@ const Offer = () => {
               const keys = Object.keys(element);
               return (
                 <>
-                  <Link to="/Payment">
-                    <div className="offer-infos">
-                      <div>
-                        <ul className="offer-list" key={index}>
-                          <li>
-                            <span>{keys[0]}</span>
-                            <span>{element[keys[0]]}</span>
-                          </li>
-                        </ul>
-                      </div>
+                  <div className="offer-infos">
+                    <div>
+                      <ul className="offer-list" key={index}>
+                        <li>
+                          <span>{keys[0]}</span>
+                          <span>{element[keys[0]]}</span>
+                        </li>
+                      </ul>
                     </div>
+                  </div>
+                  <Link to="/Payment">
+                    <button>Acheter</button>
                   </Link>
                 </>
               );
