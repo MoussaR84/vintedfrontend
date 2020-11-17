@@ -40,7 +40,7 @@ const Login = ({ setUser }) => {
           />
           <button
             type="submit"
-            onSubmit={async () => {
+            onClick={async () => {
               const response = await axios.post(
                 "https://lereacteur-vinted-api.herokuapp.com/Login",
                 {

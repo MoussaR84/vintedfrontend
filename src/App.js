@@ -52,8 +52,7 @@ const App = () => {
             <Publish token={token} />
           </Route>
           <Route path="/Payment">
-            <Payment token={token} />
-            {!token ? <Redirect to="/login" /> : <Payment />}
+            {!token ? <Redirect to="/login" /> : <Payment token={token} />}
           </Route>
           <Route path="/">
             <Home search={search} token={token} />
