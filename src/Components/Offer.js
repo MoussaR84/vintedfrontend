@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 //  cuidado on va utiliser useeffect car is loading ou non //
 
 const Offer = () => {
@@ -44,16 +45,18 @@ const Offer = () => {
               const keys = Object.keys(element);
               return (
                 <>
-                  <div className="offer-infos">
-                    <div>
-                      <ul className="offer-list" key={index}>
-                        <li>
-                          <span>{keys[0]}</span>
-                          <span>{element[keys[0]]}</span>
-                        </li>
-                      </ul>
+                  <Link to="/Payment">
+                    <div className="offer-infos">
+                      <div>
+                        <ul className="offer-list" key={index}>
+                          <li>
+                            <span>{keys[0]}</span>
+                            <span>{element[keys[0]]}</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </>
               );
             })}

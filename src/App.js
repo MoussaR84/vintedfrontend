@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import "./App.css";
 import Header from "./Components/Header";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import Home from "./Containers/Home";
 import Login from "./Containers/Login";
 import Signup from "./Containers/Signup";
 import Offer from "./Components/Offer";
 import Cookies from "js-cookie";
 import Publish from "./Containers/Publish";
+import Payment from "./Containers/Payment";
 
 const App = () => {
   const [user, setUser] = useState("");
@@ -44,6 +50,10 @@ const App = () => {
           </Route>
           <Route path="/Publish">
             <Publish token={token} />
+          </Route>
+          <Route path="/Payment">
+            <Payment token={token} />
+            {!token ? <Redirect to="/login" /> : <Payment />}
           </Route>
           <Route path="/">
             <Home search={search} token={token} />

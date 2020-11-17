@@ -26,7 +26,7 @@ const Header = ({ token, setUser, setSearch }) => {
       ) : (
         <>
           <Link to="/signup">
-            <button className="signUp">Créer un compte</button>
+            <button className="button-login-signup">Créer un compte</button>
           </Link>
           <Link to="/login">
             <button className="Login">Se connecter</button>

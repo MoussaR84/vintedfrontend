@@ -32,12 +32,14 @@ const Home = ({ search, setSearch }) => {
         <img src={Imgbackground} alt="" className="imgbackground" />
         <div>
           <div className="homeready">
-            Ready to sort your cupboards?
-            <button>Start to sell</button>
+            Ready to sort your cupboards
+            <Link to={"/Publish"}>
+              <button>Start to sell</button>
+            </Link>
           </div>
         </div>
       </div>
-      <div style={{ display: "flex" }}>
+      <div className="home-c-wrapper">
         {data.offers.map((offer, index) => {
           // console.log(offer);
           return (
