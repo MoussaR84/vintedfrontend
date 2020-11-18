@@ -25,39 +25,53 @@ const Home = ({ search, setSearch }) => {
   }, [setData, search]); //a chaque fois que cela change cela va m afficher les données new request
 
   return isLoading ? (
-    <p>En cours chargement...</p>
+    <span>en cours de chargement</span>
   ) : (
     <>
-      <div className="home-hero">
-        <img src={Imgbackground} alt="" className="imgbackground" />
-        <div>
-          <div className="homeready">
-            Ready to sort your cupboards
-            <Link to={"/Publish"}>
-              <button>Start to sell</button>
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="home-c-wrapper">
-        {data.offers.map((offer, index) => {
-          // console.log(offer);
-          return (
-            <div className="card-container">
-              <Link to={`/offer/${offer._id}`} key={offer._id}>
-                <img src={offer.product_image.secure_url} />
-                <div className="cardbsize">
-                  <span>{offer.product_price}€</span>
-                  <span>{offer.product_details[1].TAILLE}</span>
-                  <span>{offer.product_details[0].MARQUE}</span>
-                  <span className="avataruser">
-                    {offer.product_pictures.secure_url}
-                  </span>
-                </div>
-              </Link>
+      <div className="container">
+        <div className="home-hero">
+          <img src={Imgbackground} alt="" className="home-hero-forme" />
+          <Link to="/publish">
+            <div>
+              <div className="home-hero-ready">
+                Prêt à faire du rangement dans vos placard ?
+                <button>Start to sell</button>
+              </div>
             </div>
-          );
-        })}
+          </Link>
+        </div>
+        <>
+          <div className="home-card-wrapper">
+            {data.offers.map((offer, id) => {
+              return (
+                <div key={id}>
+                  <div className="card-container">
+                    <div className="card-avatar-username">
+                      <span>
+                        {/*<img
+                          src={item.owner.account.avatar.secure_url}
+                          alt="avatar pic"
+                          className="avat"
+                        />*/}
+                        <span>{offer.owner.account.username}</span>
+                      </span>
+                    </div>
+                    <Link to={`/offer/${offer._id}`}>
+                      <div>
+                        <img src={offer.product_image.secure_url} alt="" />
+                        <div className="card-price-brand-size">
+                          <span>{offer.product_price} €</span>
+                          <span>{offer.product_details[1].TAILLE}</span>
+                          <span>{offer.product_details[0].MARQUE}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </>
       </div>
     </>
   );

@@ -59,8 +59,13 @@ const Offer = () => {
               );
             })}
           </div>
-          <Link className="buttonpayment" to="/Payment">
-            <button>Acheter</button>
+          <Link
+            to={{
+              pathname: "/Payment",
+              state: { title: data.product_name, price: data.product_price },
+            }}
+          >
+            Acheter
           </Link>
         </div>
       </div>

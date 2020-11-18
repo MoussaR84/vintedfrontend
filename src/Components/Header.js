@@ -10,7 +10,9 @@ const Header = ({ token, setUser, setSearch }) => {
     <div className="header-container">
       <div>
         <Link to="/">
-          <img className="header-logo" src={Logo} alt="logo" />
+          <div>
+            <img className="header-logo" src={Logo} alt="logo" />
+          </div>
         </Link>
 
         <Input className="inputform" setSearch={setSearch} />

@@ -42,7 +42,7 @@ const Login = ({ setUser }) => {
             type="submit"
             onClick={async () => {
               const response = await axios.post(
-                "https://lereacteur-vinted-api.herokuapp.com/Login",
+                "https://lereacteur-vinted-api.herokuapp.com/login",
                 {
                   email: email,
                   password: password,
