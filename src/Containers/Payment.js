@@ -6,21 +6,18 @@ import { useLocation } from "react-router-dom";
 
 const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
 
-const Payment = ({ token }) => {
+const Payment = () => {
   const location = useLocation();
-  const orderRef = location.orderRef;
-  console.log("Ref. commande, page payment:", orderRef);
+  //   console.log(location);
+  const { title, price } = location.state;
   return (
-    <main>
-      <div className="container">
-        <div className="payment-container">
-          <h2>Résumé de la commande</h2>
-          <Elements stripe={stripePromise}>
-            <Checkout orderRef={orderRef} />
-          </Elements>
-        </div>
-      </div>
-    </main>
+    <div>
+      Payment Nom du produit : {title}
+      Prix du produit : {price}
+      <Elements stripe={stripePromise}>
+        <Checkout title={title} price={price} />
+      </Elements>
+    </div>
   );
 };
 

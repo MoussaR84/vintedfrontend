@@ -55,13 +55,13 @@ const Offer = () => {
                       </ul>
                     </div>
                   </div>
-                  <Link to="/Payment">
-                    <button>Acheter</button>
-                  </Link>
                 </>
               );
             })}
           </div>
+          <Link className="buttonpayment" to="/Payment">
+            <button>Acheter</button>
+          </Link>
         </div>
       </div>
     </>

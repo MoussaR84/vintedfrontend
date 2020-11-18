@@ -12,6 +12,7 @@ const Header = ({ token, setUser, setSearch }) => {
         <Link to="/">
           <img className="header-logo" src={Logo} alt="logo" />
         </Link>
+
         <Input className="inputform" setSearch={setSearch} />
       </div>
       {token ? (
