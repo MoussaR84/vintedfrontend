@@ -14,14 +14,23 @@ const Payment = () => {
   console.log(price);
 
   return (
-    <div>
-      <h1>coucou sabgsdigzaidga</h1>
-      Payment Nom du produit : {title}
-      Prix du produit : {price}
-      <Elements stripe={stripePromise}>
-        <Checkout title={title} price={price} />
-      </Elements>
-    </div>
+    <main className="payment-main">
+      <div className="container">
+        <div className="payment-container">
+          <div className="order-header">
+            <h2>Résumé de la commande</h2>
+            <div>
+              <span className="legend">Produit</span>
+              <span>Payment Nom du produit : {title}</span>
+              <span>Prix du produit : {price}</span>
+            </div>
+            <Elements stripe={stripePromise}>
+              <Checkout title={title} price={price} />
+            </Elements>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 };
 

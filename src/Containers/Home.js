@@ -48,11 +48,6 @@ const Home = ({ search, setSearch }) => {
                   <div className="card-container">
                     <div className="card-avatar-username">
                       <span>
-                        {/*<img
-                          src={item.owner.account.avatar.secure_url}
-                          alt="avatar pic"
-                          className="avat"
-                        />*/}
                         <span>{offer.owner.account.username}</span>
                       </span>
                     </div>

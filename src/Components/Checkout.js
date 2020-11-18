@@ -13,7 +13,7 @@ const Checkout = ({ title, price }) => {
     // Stripe recupere les données bancaire
     const cardElement = elements.getElement(CardElement);
 
-    // Envoi de la requëte dans l API
+    // Envoi de la requête dans l API
     const stripeResponse = await stripe.createToken(cardElement, {
       name: "428492FJEDLZ90",
     });
@@ -22,7 +22,7 @@ const Checkout = ({ title, price }) => {
 
     const stripeToken = stripeResponse.token.id;
 
-    // Requete  Ã  mon serveur
+    // Requete à  mon serveur
     const response = await axios.post(
       "https://lereacteur-vinted-api.herokuapp.com/payment",
       {
@@ -42,7 +42,7 @@ const Checkout = ({ title, price }) => {
       {completed ? (
         <p>Paiment effectué !</p>
       ) : (
-        <form onSubmit={handleSubmit}>
+        <form className="checkout-form" onSubmit={handleSubmit}>
           <CardElement />
           <button type="submit">Acheter</button>
         </form>
